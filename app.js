@@ -1,6 +1,8 @@
+let restart = document.getElementById('btn')
+let container = document.getElementById('text')
 let userChoice = prompt('rock, paper or scissors?')
 
-let computerChoice = Math.random();
+ let computerChoice = Math.random();
     if(computerChoice < 0.34){
         computerChoice = 'rock';
     }   else if(computerChoice <= 0.67){
@@ -11,7 +13,7 @@ let computerChoice = Math.random();
 
     console.log("Computer chooses: " + computerChoice);
 
-    let compare = function(choice1, choice2){
+   let compare = function(choice1, choice2){
         if (choice1 === choice2){
             
             return('Its tie!')
@@ -37,11 +39,27 @@ let computerChoice = Math.random();
                 }   else {
                     return('Rock wins!' +'<br>'+ 'You lost :((')
                 }
+        } else{
+            return('Something went wrong')
         }
     };
-
-
-
-
-    document.write(compare(userChoice,computerChoice))
-    document.write('<br>' + "Computer chooses: " + computerChoice);
+    
+    let gamerestart = restart.addEventListener('click', function playAgain(e) {
+        Event.preventDefault;
+    let userChoice2 = prompt('rock, paper or scissors?');
+    let computerChoice2 = Math.random();
+    if(computerChoice2 < 0.34){
+        computerChoice2 = 'rock';
+    }   else if(computerChoice <= 0.67){
+        computerChoice2 = 'scissors'
+    }   else{
+        computerChoice2 = 'paper'
+    }
+        container.innerHTML = ('<p>' + compare(userChoice2,computerChoice2)  + '<br> Computer chooses: ' + computerChoice2 + '</p>');
+        console.log(computerChoice2)
+    });
+    
+   container.innerHTML += ('<p>' + compare(userChoice,computerChoice) + '<br>' +' Computer chooses: ' + computerChoice + '</p>');
+  
+  
+    
